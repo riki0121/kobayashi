@@ -2,11 +2,11 @@ from ultralytics import YOLO
 import cv2
 
 model = YOLO("yolov8x-pose.pt")
-img = cv2.imread("C:/Users/rikik/OneDrive/ドキュメント/kitamura/ex1.jpg") #画像読み込み
+img = cv2.imread("ex1.jpg") #画像読み込み
 
-results = model("C:/Users/rikik/OneDrive/ドキュメント/kitamura/ex1.jpg", save=True, save_txt=True, save_conf=True)
+results = model("ex1.jpg", save=True, save_txt=True, save_conf=True)
 keypoints = results[0].keypoints
-print(keypoints.data) #.data = いろいろなデータの情報を表示させてくれる
+print(keypoints.data) #.dataの中にx,y座標
 
 
 points = [(5,6),(5,7),(5,11),(9,7),(6,8),(6,12),(10,8),(13,11),(13,15),(14,12),(14,16),(11,12)]#繋げる（線を引く）  
